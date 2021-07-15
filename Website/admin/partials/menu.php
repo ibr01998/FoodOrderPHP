@@ -1,3 +1,6 @@
+<?php
+    include('../config/constants.php');
+?>
 <html>
     <head>
         <title>Admin Home Page</title>

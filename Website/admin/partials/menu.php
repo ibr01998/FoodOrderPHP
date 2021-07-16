@@ -1,5 +1,7 @@
 <?php
     include('../config/constants.php');
+    include('authorization.php');
+
 ?>
 <html>
     <head>
@@ -16,6 +18,8 @@
                     <li><a href="category.php">Category</a></li>
                     <li><a href="food.php">Food</a></li>
                     <li><a href="orders.php">Orders</a></li>
+                    <li><a href="logout.php">Logout</a></li>
+
                 </ul>
             </div>
         </div>

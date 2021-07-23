@@ -9,39 +9,39 @@
 
         if ($image != "") {
             
-            $path= "../images/category/".$image;
+            $path= "../images/food/".$image;
             
             $remove = unlink($path);
 
             if ($remove == false) {
                 $_SESSION['delete'] = "Failed to delete image from directory";
 
-                header('location:'.SITEURL.'admin/category.php');
+                header('location:'.SITEURL.'admin/food.php');
 
                 die();
             }
         }
 
-        $sql = "DELETE FROM category WHERE id=$id";
+        $sql = "DELETE FROM food WHERE id=$id";
 
         $res = mysqli_query($conn, $sql);
 
         if ($res == TRUE) {
         
-            $_SESSION['delete'] = "Category Deleted Successfully";
+            $_SESSION['delete'] = "Food Deleted Successfully";
 
-            header('location:'.SITEURL.'admin/category.php');
+            header('location:'.SITEURL.'admin/food.php');
         }else {
-            $_SESSION['delete'] = "Failed to Delete Category";
+            $_SESSION['delete'] = "Failed to Delete Food";
 
-            header('location:'.SITEURL.'admin/category.php');
+            header('location:'.SITEURL.'admin/food.php');
         }
 
     }
     else 
     {
         
-        header('location:'.SITEURL.'admin/category.php');
+        header('location:'.SITEURL.'admin/food.php');
 
     }
     

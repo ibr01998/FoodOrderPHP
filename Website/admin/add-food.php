@@ -1,7 +1,7 @@
 <?php include('partials/menu.php'); ?>
 <div class="main-content">
     <div class="wrapper">
-        <h1>Add Category</h1>
+        <h1>Add Food</h1>
         <br>
 
         <?php 
@@ -20,8 +20,47 @@
                     <td><input type="text" name="name" placeholder="Category Name"></td>
                 </tr>
                 <tr>
+                    <td>Description: </td>
+                    <td><textarea name="description" cols='30' rows='10' placeholder="Food Description"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Price: </td>
+                    <td><input type="number" name="price" step=0.01></td>
+                </tr>
+                <tr>
                     <td>Select Image: </td>
                     <td><input type="file" name="image"></td>
+                </tr>
+                <tr>
+                    <td>Category: </td>
+                    <td>
+                    <select name="category">
+
+                        <?php
+                        
+                        $sql = "SELECT * FROM category WHERE active='Yes'";
+
+                        $res = mysqli_query($conn, $sql);
+
+                        $count = mysqli_num_rows($res);
+
+                        if ($count>0) {
+                            while ($row =mysqli_fetch_assoc($res)) {
+                                $id = $row['id'];
+                                $name = $row['title'];
+                                ?>
+                                    <option value="<?php echo $id; ?>"><?php echo $name; ?></option>
+                                <?php
+                            }
+                        }else {
+                            ?>
+                            <option value="0">No Category Found</option>
+                            <?php
+                        }
+
+                        ?>
+                    </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>Featured: </td>
@@ -39,7 +78,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add Category " class="btn-secondary">
+                        <input type="submit" name="submit" value="Add Food " class="btn-secondary">
                     </td>
                 </tr>
             </table>
@@ -52,6 +91,10 @@
     if(isset($_POST['submit']))
     {
         $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $category = $_POST['category'];
+
 
         if(isset($_POST['featured']))
         {
@@ -78,14 +121,14 @@
     
                 $source_name = $_FILES['image']['tmp_name'];
             
-                $destination_path = "../images/category/".$image_name;
+                $destination_path = "../images/food/".$image_name;
     
                 $upload = move_uploaded_file($source_name, $destination_path);
     
                 if ($upload == false) {
                     $_SESSION['upload'] = "Failed To Upload Image";
     
-                    header("location:".SITEURL.'admin/add-category.php');
+                    header("location:".SITEURL.'admin/food.php');
                     
                     die();
                 }
@@ -95,24 +138,27 @@
             $image_name = "";
         }
 
-        $sql = "INSERT INTO category SET
+        $sql2 = "INSERT INTO food SET
                 title='$name',
+                description='$description',
+                price='$price',
                 image_name='$image_name',
+                category_id='$category',
                 featured='$featured',
                 active='$active'";
         
       
-        $res = mysqli_query($conn, $sql) or die(mysqli_error());
+        $res2 = mysqli_query($conn, $sql2) or die(mysqli_error());
 
-        if($res ==TRUE){
-            $_SESSION['add'] = "Category Added Successfully";
+        if($res2 ==TRUE){
+            $_SESSION['add'] = "Food Added Successfully";
 
-            header("location:".SITEURL.'admin/category.php');
+            header("location:".SITEURL.'admin/food.php');
         }
         else {
-            $_SESSION['add'] = "Failed To Add Category";
+            $_SESSION['add'] = "Failed To Add Food";
 
-            header("location:".SITEURL.'admin/add-category.php');
+            header("location:".SITEURL.'admin/food.php');
         }
     }
   

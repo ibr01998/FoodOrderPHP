@@ -23,7 +23,7 @@
                             <div class="box-3 float-container">
                                 <?php
                                     if ($image_name=="") {
-                                        echo "No Images";
+                                        echo "No Image";
                                     }
                                     else {
                                         ?> 

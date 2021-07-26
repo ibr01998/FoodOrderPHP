@@ -38,7 +38,7 @@
                     <div class="food-menu-img">
                     <?php
                                     if ($image_name=="") {
-                                        echo "No Images";
+                                        echo "No Image";
                                     }
                                     else {
                                         ?> 

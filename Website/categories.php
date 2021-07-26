@@ -4,7 +4,7 @@
     <!-- CAtegories Section Starts Here -->
     <section class="categories">
         <div class="container">
-            <h2 class="text-center">Explore Foods</h2>
+            <h2 class="text-center">Categories</h2>
 
             <?php
                 $sql = "SELECT * FROM category WHERE active='Yes'";

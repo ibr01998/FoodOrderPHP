@@ -5,8 +5,10 @@
 ?>
 <html>
     <head>
-        <title>Admin Home Page</title>
+        <title>Kwizin Pannel</title>
         <link rel="stylesheet" href="../css/admin.css">
+        <link rel="icon" sizes="192x192" href="../images/icon.png">
+
     </head>
     <body>
         <div class="menu">

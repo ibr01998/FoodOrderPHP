@@ -7,7 +7,7 @@
     <!-- Important to make website responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kwizin</title>
-
+    <link rel="icon" sizes="192x192" href="images/icon.png">
     <!-- Link our CSS file -->
     <link rel="stylesheet" href="css/style.css">
 </head>

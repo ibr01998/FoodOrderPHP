@@ -186,12 +186,10 @@
                     }
                 }
                 
+            }else{
+                $image_name = $current_image;
             }
 
-        }else{
-            $_SESSION['error'] = $current_image;
-
-            $image_name = $current_image;
         }
 
         $sql3 = "UPDATE food SET

@@ -16,6 +16,7 @@ input[type=text], select, textarea {
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
   background-color: #04AA6D;
+  width: 100%;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -59,7 +60,7 @@ input[type=submit]:hover {
             <label for="subject">Subject</label>
             <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" class="btn btn-primary">
 
             </form>
             </div>

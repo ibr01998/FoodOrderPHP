@@ -36,6 +36,19 @@
                     <li>
                         <a href="contact.php">Contact</a>
                     </li>
+                    <li>
+                        <a href="cart.php">Cart: <?php 
+                        $amount = 0;
+                        if (isset($_SESSION['shopping_cart'])) {
+                            for ($i=0; $i < count($_SESSION['shopping_cart']); $i++) { 
+                               $amount += $_SESSION['shopping_cart'][$i]['quantity'];
+                            }
+                            echo $amount;
+                        }else {
+                            echo "0";
+                        }
+                        ?></a>
+                    </li>
                 </ul>
             </div>
 

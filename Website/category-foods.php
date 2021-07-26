@@ -69,7 +69,7 @@
                                 </p>
                                 <br>
 
-                                <a href="order.php?id=<?php echo $id;?>" class="btn btn-primary">Order Now</a>
+                                <a href="add-cart.php?id=<?php echo $id;?>" class="btn btn-primary">Add To Cart</a>
                                 </div>
                             </div>
                             <?php

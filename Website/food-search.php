@@ -1,10 +1,16 @@
 
-<?php include('partials-front/menu.php');?>
-
+<?php include('partials-front/menu.php');
+    // bug when pressing add to cart and 
+    // return back from the search page 
+    // a warning appiers and we get redirected to 
+    // set page without and search paramaters
+?>
+    
     <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-center">
         <div class="container">
             <?php
+            
             $search = $_POST['search'];
             ?>
             <h2>Foods on Your Search <a href="#" class="text-white"><?php echo $search;?></a></h2>
@@ -53,14 +59,14 @@
                                 </div>
                                 <div class="food-menu-desc">
                                 <h4><?php echo $title; ?></h4>
-                                <p class="food-price"><?php echo $price; ?></p>
+                                <p class="food-price"><?php echo $price; ?> €</p>
                                 <p class="food-detail">
                                     <?php echo $description; ?>
                                 </p>
                                 <br>
 
-                                <a href="order.html" class="btn btn-primary">Order Now</a>
-                                </div>
+                                <a href="add-cart.php?id=<?php echo $id;?>" class="btn btn-primary">Add to Cart</a>
+                              </div>
                             </div>
                             <?php
                         }
